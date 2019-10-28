@@ -2,42 +2,43 @@
 #include <stdlib.h>
 #include "llist.h"
 
-void print_list(struct Node *llist) {
+void print_list(struct song_node *llist) {
   if (llist == NULL) { //empty list
     printf("[ ]");
     return;
   }
 
-  struct Node *current = llist;
+  struct song_node *current = llist;
   while (current != NULL) {
-    printf("%d ", current -> i);
+    printf("%s: %s ", current -> name, current -> artist);
     current = current -> next;
   }
 
-  printf(" |");
+  printf("|");
 }
 
-struct Node * insert_front(struct Node *llist, int i) {
-  struct Node *front = malloc(sizeof(struct Node));
+struct song_node * insert_front(struct song_node *llist, int i) {
+  struct song_node *front = malloc(sizeof(struct song_node));
   front -> i = i;
   front -> next = llist;
 
   return llist;
 }
 
-struct Node *remove_node(struct Node *llist, int data) {
-  struct Node *prev = NULL;
-  struct Node *current = llist;
+/*
+struct song_node *remove_song_node(struct song_node *llist, int data) {
+  struct song_node *prev = NULL;
+  struct song_node *current = llist;
   while (current != NULL) {
     if (current -> i == data) {
       if (prev == NULL) { //case where the first element is removed - start of list is now the next struct
-        printf("Data found; freeing the first node and setting the front to the next node. \n");
-        struct Node *next = current -> next;
+        printf("Data found; freeing the first song_node and setting the front to the next song_node. \n");
+        struct song_node *next = current -> next;
         free(current);
         return next;
       }
 
-      printf("[%d] Data found; the node containing this data will now be freed. \n", current -> i);
+      printf("[%d] Data found; the song_node containing this data will now be freed. \n", current -> i);
       prev -> next = current -> next;
       free(current);
       return llist;
@@ -51,3 +52,4 @@ struct Node *remove_node(struct Node *llist, int data) {
   printf("Data not found; nothing has been changed. \n");
   return llist;
 }
+*/
