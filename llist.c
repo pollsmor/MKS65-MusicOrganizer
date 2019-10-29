@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "llist.h"
 
 void print_list(struct song_node *llist) {
@@ -16,10 +17,10 @@ void print_list(struct song_node *llist) {
   }
 }
 
-struct song_node * insert_front(struct song_node *llist, char const *name, char const *artist){
+struct song_node * insert_front(struct song_node *llist, char name[], char artist[]) {
   struct song_node *front = malloc(sizeof(struct song_node));
-  front -> name = name;
-  front -> artist = artist;
+  strncpy(front -> name, name, 100);
+  strncpy(front -> artist, artist, 100);
   front -> next = llist;
 
   return front;
