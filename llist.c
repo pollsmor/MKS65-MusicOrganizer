@@ -54,8 +54,8 @@ struct song_node *remove_song_node(struct song_node *llist, int data) {
 }
 */
 
-struct song_node * free_list(struct song_node *list) {
-  struct song_node *current = list;
+struct song_node * free_list(struct song_node *llist) {
+  struct song_node *current = llist;
   while (current != NULL) {
     struct song_node *next = current -> next;
     printf("Freeing node containing song: \"%s\" by %s \n", current -> name, current -> artist);
@@ -63,7 +63,7 @@ struct song_node * free_list(struct song_node *list) {
     current = next;
   }
 
-  list = NULL;
+  llist = NULL;
 
-  return list;
+  return llist;
 }

@@ -16,7 +16,12 @@ int main() {
   print_list(list);
   printf("\n");
 
-  free_list(list);
+  printf("==================================== \n\n");
+  printf("Testing free_list \n");
+  list = free_list(list);
+  printf("List after free_list: ");
+  print_list(list);
+  printf("\n\n");
 
   return 0;
 }
