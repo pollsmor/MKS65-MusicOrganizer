@@ -16,5 +16,7 @@ int main() {
   print_list(list);
   printf("\n");
 
+  free_list(list);
+
   return 0;
 }
