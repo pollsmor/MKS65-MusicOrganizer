@@ -20,5 +20,5 @@ clean:
 	rm *.o
 	rm mytunes
 
-	memcheck:
-		valgrind --leak-check=yes ./mytunes
+memcheck:
+	valgrind --leak-check=yes ./mytunes

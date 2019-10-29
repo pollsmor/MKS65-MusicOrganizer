@@ -9,20 +9,20 @@ void print_list(struct song_node *llist) {
   }
 
   struct song_node *current = llist;
+  int i = 0; //for counting the songs in the list
   while (current != NULL) {
-    printf("%s: %s ", current -> name, current -> artist);
+    printf("%d. \"%s\" by %s \n", i++, current -> name, current -> artist);
     current = current -> next;
   }
-
-  printf("|");
 }
 
-struct song_node * insert_front(struct song_node *llist, int i) {
+struct song_node * insert_front(struct song_node *llist, char const *name, char const *artist){
   struct song_node *front = malloc(sizeof(struct song_node));
-  front -> i = i;
+  front -> name = name;
+  front -> artist = artist;
   front -> next = llist;
 
-  return llist;
+  return front;
 }
 
 /*
