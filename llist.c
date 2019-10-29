@@ -26,6 +26,26 @@ struct song_node * insert_front(struct song_node *llist, char name[], char artis
   return front;
 }
 
+//Alphabetical first by artist then by song
+struct song_node * insert_in_order(struct song_node *llist, char name[], char artist[]) {
+  struct song_node *node = malloc(sizeof(struct song_node));
+  strncpy(node -> name, name, 100);
+  strncpy(node -> artist, artist, 100);
+
+  //Put node in correct place
+  struct song_node *current = llist;
+  while (current != NULL) {
+    struct song_node *next = current -> next;
+    if (next == NULL) {
+    }
+
+    current = next;
+  }
+
+  current -> next = 
+  return llist; //return front of list
+}
+
 /*
 struct song_node *remove_song_node(struct song_node *llist, int data) {
   struct song_node *prev = NULL;
