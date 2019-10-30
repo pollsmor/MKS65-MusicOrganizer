@@ -26,6 +26,15 @@ struct song_node * insert_front(struct song_node *llist, char name[], char artis
   return front;
 }
 
+//Helper function
+int songcmp(struct song_node *song1, struct song_node *song2) {
+  if (strcmp(song1 -> artist, song2 -> artist) == 0) {
+    return strcmp(song1 -> name, song2 -> name);
+  }
+
+  return strcmp(song1 -> artist, song2 -> artist);
+}
+
 //Alphabetical first by artist then by song
 struct song_node * insert_in_order(struct song_node *llist, char name[], char artist[]) {
   //Fill node with appropriate data, besides what the  next node is
