@@ -96,41 +96,32 @@ void print_node(struct song_node *node) {
 }
 
 struct song_node *remove_song(struct song_node *llist, char name[], char artist[]) {
-  struct song_node *prev = NULL;
   struct song_node *current = llist;
+  struct song_node *next = llist -> next;
 
-  while (current != NULL) {
-    if (strcmp(artist, current -> artist) == 0) {
-      while (strcmp(artist, current -> artist) == 0) {
-        if (strcmp(name, current -> name) == 0) {
-          printf("Removing \"%s\" by %s \n", current -> name, current -> artist);
+  while (next != NULL) {
+    if (strcmp(current -> artist, artist) == 0) {
+      if (strcmp(current -> name, name) == 0) {
+        printf("Removing \"%s\" by %s \n", current -> name, current -> artist);
 
-          if (prev == NULL) { //case where song is at the start of the list
-            struct song_node *next = current -> next;
-            free(current);
-            return next;
-          }
-
-          prev -> next = current -> next;
+        if (current == llist) { //case where the song is at the start of the list
           free(current);
-          return llist;
+          return next;
         }
 
-        prev = current;
-        current = current -> next;
+        printf("xd");
+        current -> next = next -> next;
+        free(current);
+        return llist;
       }
+    }
 
-    //Couldn't find the song
-    printf("Song not found; nothing has been removed. \n");
-    return llist;
+    current = next;
+    next = next -> next;
   }
 
-    prev = current;
-    current = current -> next;
-  }
-
-  //Couldn't find the artist
-  printf("Artist not found; nothing has been removed. \n");
+  //Couldn't find the song
+  printf("Song by artist not found; nothing has been removed. \n");
   return llist;
 }
 

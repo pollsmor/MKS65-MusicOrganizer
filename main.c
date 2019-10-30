@@ -36,7 +36,7 @@ int main() {
   list = remove_song(list, "I See The Light", "Mandy Moore & Zachary Levi");
   print_list(list);
   printf("\n");
-  list = remove_song(list, "Let it Go", "Idina Menzel");
+  list = remove_song(list, "A Whole New World", "Brad Kane & Lea Salonga");
   print_list(list);
 
   printf("==================================== \n\n");
