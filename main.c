@@ -11,13 +11,14 @@ int main() {
   struct song_node *list = NULL;
   printf("Testing print_list on empty list: ");
   print_list(list);
-  printf("\n\n");
+  printf("\n");
 
   printf("Adding some Disney songs and their artists in order and testing print_list: \n");
-  list = insert_front(list, "I See The Light", "Mandy Moore & Zachary Levi");
+  list = insert_front(list, "I See The Light", "Mandy Moore"); //and Zachary Levi
   list = insert_front(list, "Reflection", "Lea Salonga");
   list = insert_front(list, "Let it Go", "Idina Menzel");
-  list = insert_front(list, "For the First Time In Forever", "Kristen Bell & Idina Menzel");
+  list = insert_front(list, "For the First Time In Forever", "Kristen Bell"); //and Idina Menzel
+  list = insert_front(list, "Do You Want to Build a Snowman?", "Kristen Bell"); //and Idina Menzel
   list = insert_front(list, "A Place Called Slaughter Race", "Sarah Silverman");
   list = insert_front(list, "When Will My Life Begin", "Mandy Moore");
   list = insert_front(list, "A Whole New World", "Brad Kane & Lea Salonga");
@@ -32,6 +33,18 @@ int main() {
   print_node(find_song(list, "When Will My Life Begin", "Kanye West"));
   printf("\n");
   print_node(find_song(list, "Let it Go", "Mandy Moore"));
+
+  printf("==================================== \n\n");
+  printf("Testing find_artist (with the help of print_list): \n");
+  print_list(find_artist(list, "Michael Bolton"));
+  printf("\n");
+  print_list(find_artist(list, "Kristen Bell"));
+  printf("\n");
+  print_list(find_artist(list, "Idina Menzel"));
+  printf("\n");
+  print_list(find_artist(list, "Kanye West"));
+  printf("\n");
+  print_list(find_artist(list, "Mandy Moore"));
 
   printf("==================================== \n\n");
   printf("Testing random (with the help of print_node): \n");
