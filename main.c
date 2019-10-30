@@ -13,15 +13,28 @@ int main() {
   print_list(list);
   printf("\n\n");
 
-  printf("Adding 3 Disney songs and their artists in order and testing print_list: \n");
+  printf("Adding some Disney songs and their artists in order and testing print_list: \n");
   list = insert_front(list, "I See The Light", "Mandy Moore & Zachary Levi");
   list = insert_front(list, "Reflection", "Lea Salonga");
   list = insert_front(list, "Let it Go", "Idina Menzel");
+  list = insert_front(list, "For the First Time In Forever", "Kristen Bell & Idina Menzel");
+  list = insert_front(list, "A Place Called Slaughter Race", "Sarah Silverman");
+  list = insert_front(list, "When Will My Life Begin", "Mandy Moore");
   list = insert_front(list, "A Whole New World", "Brad Kane & Lea Salonga");
   print_list(list);
 
   printf("==================================== \n\n");
-  printf("Testing random: \n");
+  printf("Testing find_song (with the help of print_node): \n");
+  print_node(find_song(list, "Go the Distance", "Michael Bolton"));
+  printf("\n");
+  print_node(find_song(list, "Let it Go", "Idina Menzel"));
+  printf("\n");
+  print_node(find_song(list, "When Will My Life Begin", "Kanye West"));
+  printf("\n");
+  print_node(find_song(list, "Let it Go", "Mandy Moore"));
+
+  printf("==================================== \n\n");
+  printf("Testing random (with the help of print_node): \n");
   print_node(random_song(list));
   print_node(random_song(list));
   print_node(random_song(list));
@@ -38,7 +51,6 @@ int main() {
   printf("\n");
   list = remove_song(list, "A Whole New World", "Brad Kane & Lea Salonga");
   print_list(list);
-  printf("\n");
 
   printf("==================================== \n\n");
   printf("Testing free_list \n");

@@ -3,18 +3,13 @@
 #include <string.h>
 #include "llist.h"
 
-void print_list(struct song_node *llist) {
-  if (llist == NULL) { //empty list
-    printf("[ ]");
-    return;
+//Helper function
+int songcmp(struct song_node *song1, struct song_node *song2) {
+  if (strcmp(song1 -> artist, song2 -> artist) == 0) {
+    return strcmp(song1 -> name, song2 -> name);
   }
 
-  struct song_node *current = llist;
-  int i = 0; //for counting the songs in the list
-  while (current != NULL) {
-    printf("%d. \"%s\" by %s \n", i++, current -> name, current -> artist);
-    current = current -> next;
-  }
+  return strcmp(song1 -> artist, song2 -> artist);
 }
 
 struct song_node * insert_front(struct song_node *llist, char name[], char artist[]) {
@@ -24,15 +19,6 @@ struct song_node * insert_front(struct song_node *llist, char name[], char artis
   front -> next = llist;
 
   return front;
-}
-
-//Helper function
-int songcmp(struct song_node *song1, struct song_node *song2) {
-  if (strcmp(song1 -> artist, song2 -> artist) == 0) {
-    return strcmp(song1 -> name, song2 -> name);
-  }
-
-  return strcmp(song1 -> artist, song2 -> artist);
 }
 
 //Alphabetical first by artist then by song
@@ -62,7 +48,49 @@ struct song_node * insert_in_order(struct song_node *llist, char name[], char ar
   return llist; //return front of list
 }
 
-int lenOfList(struct song_node *llist) {
+void print_list(struct song_node *llist) {
+  if (llist == NULL) { //empty list
+    printf("[ ]");
+    return;
+  }
+
+  struct song_node *current = llist;
+  int i = 0; //for counting the songs in the list
+  while (current != NULL) {
+    printf("%d. \"%s\" by %s \n", i++, current -> name, current -> artist);
+    current = current -> next;
+  }
+}
+
+void print_node(struct song_node *node) {
+  if (node == NULL) { //empty node
+    printf("[ ] \n");
+    return;
+  }
+
+  printf(" - \"%s\" by %s \n", node -> name, node -> artist);
+}
+
+struct song_node *find_song(struct song_node *llist, char name[], char artist[]) {
+  printf("Looking for \"%s\" by %s: \n", name, artist);
+  struct song_node *current = llist;
+
+  while (current != NULL) {
+    if (strcmp(current -> artist, artist) == 0) {
+      if (strcmp(current -> name, name) == 0) {
+        printf(" >> Song found");
+        return current;
+      }
+    }
+
+    current = current -> next;
+  }
+
+  printf(" >> Song not found ");
+  return NULL;
+}
+
+int lenOfList(struct song_node *llist) { //helper function for random_song
   struct song_node *current = llist;
   int i = 0; //for counting the songs in the list
   while (current != NULL) {
@@ -84,15 +112,6 @@ struct song_node *random_song(struct song_node *llist) {
   }
 
   return current;
-}
-
-void print_node(struct song_node *node) {
-  if (node == NULL) { //empty node
-    printf("[ ]");
-    return;
-  }
-
-  printf("\"%s\" by %s \n", node -> name, node -> artist);
 }
 
 struct song_node *remove_song(struct song_node *llist, char name[], char artist[]) {
