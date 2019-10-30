@@ -9,10 +9,23 @@ int main() {
   print_list(list);
   printf("\n\n");
 
-  printf("Adding 3 Disney songs and their artists and testing print_list: \n");
-  list = insert_front(list, "Let it Go", "Idina Menzel");
+  printf("Adding 3 Disney songs and their artists in order and testing print_list: \n");
   list = insert_front(list, "I See The Light", "Mandy Moore & Zachary Levi");
   list = insert_front(list, "Reflection", "Lea Salonga");
+  list = insert_front(list, "Let it Go", "Idina Menzel");
+  list = insert_front(list, "A Whole New World", "Brad Kane & Lea Salonga");
+  print_list(list);
+  printf("\n");
+
+  printf("==================================== \n\n");
+  printf("Testing remove_song: \n");
+  list = remove_song(list, "Reflection", "Lea Salonga");
+  print_list(list);
+  printf("\n");
+  list = remove_song(list, "I See The Light", "Mandy Moore & Zachary Levi");
+  print_list(list);
+  printf("\n");
+  list = remove_song(list, "Let it Go", "Idina Menzel");
   print_list(list);
   printf("\n");
 
