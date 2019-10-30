@@ -53,6 +53,39 @@ struct song_node * insert_in_order(struct song_node *llist, char name[], char ar
   return llist; //return front of list
 }
 
+int lenOfList(struct song_node *llist) {
+  struct song_node *current = llist;
+  int i = 0; //for counting the songs in the list
+  while (current != NULL) {
+    i++;
+    current = current -> next;
+  }
+
+  return i;
+}
+
+struct song_node *random_song(struct song_node *llist) {
+  int len = lenOfList(llist);
+  int randIdx = rand() % len;
+  int i = 0;
+
+  struct song_node *current = llist;
+  while (i++ != randIdx) {
+    current = current -> next;
+  }
+
+  return current;
+}
+
+void print_node(struct song_node *node) {
+  if (node == NULL) { //empty node
+    printf("[ ]");
+    return;
+  }
+
+  printf("\"%s\" by %s \n", node -> name, node -> artist);
+}
+
 struct song_node *remove_song(struct song_node *llist, char name[], char artist[]) {
   struct song_node *prev = NULL;
   struct song_node *current = llist;

@@ -1,7 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "llist.h"
 
 int main() {
+  srand(time(NULL));
+
   printf("LINKED LIST TESTS \n");
   printf("==================================== \n\n");
   struct song_node *list = NULL;
@@ -15,7 +19,14 @@ int main() {
   list = insert_front(list, "Let it Go", "Idina Menzel");
   list = insert_front(list, "A Whole New World", "Brad Kane & Lea Salonga");
   print_list(list);
-  printf("\n");
+
+  printf("==================================== \n\n");
+  printf("Testing random: \n");
+  print_node(random_song(list));
+  print_node(random_song(list));
+  print_node(random_song(list));
+  print_node(random_song(list));
+  print_node(random_song(list));
 
   printf("==================================== \n\n");
   printf("Testing remove_song: \n");
@@ -27,7 +38,6 @@ int main() {
   printf("\n");
   list = remove_song(list, "Let it Go", "Idina Menzel");
   print_list(list);
-  printf("\n");
 
   printf("==================================== \n\n");
   printf("Testing free_list \n");
