@@ -38,6 +38,7 @@ int main() {
   printf("\n");
   list = remove_song(list, "A Whole New World", "Brad Kane & Lea Salonga");
   print_list(list);
+  printf("\n");
 
   printf("==================================== \n\n");
   printf("Testing free_list \n");

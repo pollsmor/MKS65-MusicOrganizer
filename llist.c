@@ -96,28 +96,28 @@ void print_node(struct song_node *node) {
 }
 
 struct song_node *remove_song(struct song_node *llist, char name[], char artist[]) {
+  struct song_node *prev = NULL;
   struct song_node *current = llist;
-  struct song_node *next = llist -> next;
 
-  while (next != NULL) {
+  while (current != NULL) {
     if (strcmp(current -> artist, artist) == 0) {
       if (strcmp(current -> name, name) == 0) {
         printf("Removing \"%s\" by %s \n", current -> name, current -> artist);
 
-        if (current == llist) { //case where the song is at the start of the list
+        if (prev == NULL) { //case where the song is at the start of the list
+          struct song_node *next = current -> next;
           free(current);
           return next;
         }
 
-        printf("xd");
-        current -> next = next -> next;
+        prev -> next = current -> next;
         free(current);
         return llist;
       }
     }
 
-    current = next;
-    next = next -> next;
+    prev = current;
+    current = current -> next;
   }
 
   //Couldn't find the song
