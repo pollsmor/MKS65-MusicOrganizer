@@ -14,14 +14,14 @@ int main() {
   printf("\n");
 
   printf("Adding some Disney songs and their artists in order and testing print_list: \n");
-  list = insert_front(list, "I See The Light", "Mandy Moore"); //and Zachary Levi
-  list = insert_front(list, "Reflection", "Lea Salonga");
-  list = insert_front(list, "Let it Go", "Idina Menzel");
-  list = insert_front(list, "For the First Time In Forever", "Kristen Bell"); //and Idina Menzel
-  list = insert_front(list, "Do You Want to Build a Snowman?", "Kristen Bell"); //and Idina Menzel
-  list = insert_front(list, "A Place Called Slaughter Race", "Sarah Silverman");
-  list = insert_front(list, "When Will My Life Begin", "Mandy Moore");
-  list = insert_front(list, "A Whole New World", "Lea Salonga"); //and Brad Kane
+  list = insert_in_order(list, "I See The Light", "Mandy Moore"); //and Zachary Levi
+  list = insert_in_order(list, "Reflection", "Lea Salonga");
+  //list = insert_in_order(list, "Let it Go", "Idina Menzel");
+  //list = insert_in_order(list, "For the First Time In Forever", "Kristen Bell"); //and Idina Menzel
+  //list = insert_in_order(list, "Do You Want to Build a Snowman?", "Kristen Bell"); //and Idina Menzel
+  //list = insert_in_order(list, "A Place Called Slaughter Race", "Sarah Silverman");
+  //list = insert_in_order(list, "When Will My Life Begin", "Mandy Moore");
+  //list = insert_in_order(list, "A Whole New World", "Lea Salonga"); //and Brad Kane
   print_list(list);
 
   printf("==================================== \n\n");
