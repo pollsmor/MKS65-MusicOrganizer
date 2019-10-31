@@ -21,7 +21,7 @@ int main() {
   list = insert_front(list, "Do You Want to Build a Snowman?", "Kristen Bell"); //and Idina Menzel
   list = insert_front(list, "A Place Called Slaughter Race", "Sarah Silverman");
   list = insert_front(list, "When Will My Life Begin", "Mandy Moore");
-  list = insert_front(list, "A Whole New World", "Brad Kane & Lea Salonga");
+  list = insert_front(list, "A Whole New World", "Lea Salonga"); //and Brad Kane
   print_list(list);
 
   printf("==================================== \n\n");
@@ -47,6 +47,14 @@ int main() {
   print_list(find_artist(list, "Mandy Moore"));
 
   printf("==================================== \n\n");
+  printf("Testing songcmp (helper function) [with the help of random_song]: \n");
+  songcmp(random_song(list), random_song(list));
+  songcmp(random_song(list), random_song(list));
+  songcmp(random_song(list), random_song(list));
+  songcmp(random_song(list), random_song(list));
+  songcmp(random_song(list), random_song(list));
+
+  printf("==================================== \n\n");
   printf("Testing random (with the help of print_node): \n");
   print_node(random_song(list));
   print_node(random_song(list));
@@ -56,13 +64,17 @@ int main() {
 
   printf("==================================== \n\n");
   printf("Testing remove_song: \n");
+  printf("Printing the list again, for convenience: \n");
+  print_list(list);
+  printf("\n");
+
   list = remove_song(list, "Reflection", "Lea Salonga");
   print_list(list);
   printf("\n");
-  list = remove_song(list, "I See The Light", "Mandy Moore & Zachary Levi");
+  list = remove_song(list, "I See The Light", "Kanye West");
   print_list(list);
   printf("\n");
-  list = remove_song(list, "A Whole New World", "Brad Kane & Lea Salonga");
+  list = remove_song(list, "A Whole New World", "Lea Salonga");
   print_list(list);
 
   printf("==================================== \n\n");

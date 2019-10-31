@@ -5,10 +5,14 @@
 
 //Helper function
 int songcmp(struct song_node *song1, struct song_node *song2) {
+  printf("Comparing \"%s\" by %s to \"%s\" by %s \n", song1 -> name, song1 -> artist, song2 -> name, song2 -> artist);
+
   if (strcmp(song1 -> artist, song2 -> artist) == 0) {
+    printf("%d \n", strcmp(song1 -> name, song2 -> name));
     return strcmp(song1 -> name, song2 -> name);
   }
 
+  printf("%d \n", strcmp(song1 -> artist, song2 -> artist));
   return strcmp(song1 -> artist, song2 -> artist);
 }
 
@@ -68,7 +72,7 @@ void print_node(struct song_node *node) {
     return;
   }
 
-  printf(" - \"%s\" by %s \n", node -> name, node -> artist);
+  printf("\"%s\" by %s \n", node -> name, node -> artist);
 }
 
 struct song_node *find_song(struct song_node *llist, char name[], char artist[]) {
@@ -78,7 +82,7 @@ struct song_node *find_song(struct song_node *llist, char name[], char artist[])
   while (current != NULL) {
     if (strcmp(current -> artist, artist) == 0) {
       if (strcmp(current -> name, name) == 0) {
-        printf(" >> Song found");
+        printf(" >> Song found: ");
         return current;
       }
     }
@@ -86,7 +90,7 @@ struct song_node *find_song(struct song_node *llist, char name[], char artist[])
     current = current -> next;
   }
 
-  printf(" >> Song not found ");
+  printf(" >> Song not found: ");
   return NULL;
 }
 
@@ -103,7 +107,7 @@ struct song_node *find_artist(struct song_node *llist, char artist[]) {
     current = current -> next;
   }
 
-  printf(" >> Artist not found ");
+  printf(" >> Artist not found: ");
   return NULL;
 }
 
@@ -157,7 +161,7 @@ struct song_node *remove_song(struct song_node *llist, char name[], char artist[
   }
 
   //Couldn't find the song
-  printf("Song by artist not found; nothing has been removed. \n");
+  printf("\"%s\" by %s not found; nothing has been removed. \n", name, artist);
   return llist;
 }
 
