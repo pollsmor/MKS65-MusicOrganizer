@@ -140,6 +140,20 @@ struct song_node *remove_song(struct song_node *llist, char name[], char artist[
   struct song_node *prev = NULL;
   struct song_node *current = llist;
 
+  if (current -> next == NULL) { //case where the list is only 1 song long
+    if (strcmp(current -> artist, artist) == 0) {
+      if (strcmp(current -> name, name) == 0) {
+        printf("Removing \"%s\" by %s \n", current -> name, current -> artist);
+        free(current);
+        return NULL;
+      }
+    }
+
+    //Couldn't find the song
+    printf("\"%s\" by %s not found; nothing has been removed. \n", name, artist);
+    return llist;
+  }
+
   while (current != NULL) {
     if (strcmp(current -> artist, artist) == 0) {
       if (strcmp(current -> name, name) == 0) {

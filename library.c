@@ -61,3 +61,9 @@ struct song_node * find_artist_in_lib(struct song_node * table[27], char artist[
 
   return NULL;
 }
+
+void remove_song_in_lib(struct song_node * table[27], char name[], char artist[]) {
+  char letter = artist[0];
+
+  table[letter - 'A'] = remove_song(table[letter - 'A'], name, artist);
+}

@@ -140,5 +140,20 @@ int main() {
   printf("\n");
   print_list(find_artist_in_lib(table, "Sarah Silverman"));
 
+  printf("==================================== \n\n");
+  printf("Testing remove_song_in_lib: \n");
+  printf("Printing the library again, for convenience: \n");
+  print_library(table);
+  printf("\n");
+
+  remove_song_in_lib(table, "Reflection", "Lea Salonga");
+  print_library(table);
+  printf("\n");
+  remove_song_in_lib(table, "I See The Light", "Kanye West");
+  print_library(table);
+  printf("\n");
+  remove_song_in_lib(table, "A Whole New World", "Lea Salonga");
+  print_library(table);
+
   return 0;
 }
