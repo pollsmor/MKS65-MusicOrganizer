@@ -83,13 +83,11 @@ void print_node(struct song_node *node) {
 }
 
 struct song_node *find_song(struct song_node *llist, char name[], char artist[]) {
-  printf("Looking for \"%s\" by %s: \n", name, artist);
   struct song_node *current = llist;
 
   while (current != NULL) {
     if (strcmp(current -> artist, artist) == 0) {
       if (strcmp(current -> name, name) == 0) {
-        printf(" >> Song found: ");
         return current;
       }
     }
@@ -97,7 +95,6 @@ struct song_node *find_song(struct song_node *llist, char name[], char artist[])
     current = current -> next;
   }
 
-  printf(" >> Song not found: ");
   return NULL;
 }
 

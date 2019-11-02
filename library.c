@@ -27,3 +27,24 @@ void print_library(struct song_node * table[27]) {
     print_list(table[26]);
   }
 }
+
+void print_letter(struct song_node * table[27], char letter) {
+  printf("[%c] list: \n", letter);
+  print_list(table[letter - 'A']);
+}
+
+struct song_node * find_song_in_lib(struct song_node * table[27], char name[], char artist[]) {
+  printf("Looking for \'%s\' by %s: \n", name, artist);
+
+  int i;
+  for (i = 0; i < 26; i++) {
+    if (table[i] != NULL) {
+      if (find_song(table[i], name, artist) != NULL) {
+        printf("Song found! >> ");
+        return table[i];
+      }
+    }
+  }
+
+  return NULL;
+}

@@ -27,12 +27,16 @@ int main() {
 
   printf("==================================== \n\n");
   printf("Testing find_song (with the help of print_node): \n");
+  printf("Looking for \'Go the Distance\' by Michael Bolton: ");
   print_node(find_song(list, "Go the Distance", "Michael Bolton"));
   printf("\n");
+  printf("Looking for \'Let it Go\' by Idina Menzel: ");
   print_node(find_song(list, "Let it Go", "Idina Menzel"));
   printf("\n");
+  printf("Looking for \'When Will My Life Begin\' by Kanye West: ");
   print_node(find_song(list, "When Will My Life Begin", "Kanye West"));
   printf("\n");
+  printf("Looking for \'Let it Go\' by Mandy Moore: ");
   print_node(find_song(list, "Let it Go", "Mandy Moore"));
 
   printf("==================================== \n\n");
@@ -97,7 +101,25 @@ int main() {
   add_song(table, "When Will My Life Begin", "Mandy Moore");
   add_song(table, "A Whole New World", "Lea Salonga"); //and Brad Kane
   add_song(table, "Test song", "#TeamTrees");
+  add_song(table, "I Give Up On Thinking Of Songs", "Someone StartingWithS");
   print_library(table);
+
+  printf("==================================== \n\n");
+  printf("Testing print_letter: \n");
+  print_letter(table, 'S');
+  print_letter(table, 'K');
+  print_letter(table, 'Z');
+  printf("\n");
+
+  printf("==================================== \n\n");
+  printf("Testing find_song_in_lib: \n");
+  print_node(find_song_in_lib(table, "Go the Distance", "Michael Bolton"));
+  printf("\n");
+  print_node(find_song_in_lib(table, "Let it Go", "Idina Menzel"));
+  printf("\n");
+  print_node(find_song_in_lib(table, "When Will My Life Begin", "Kanye West"));
+  printf("\n");
+  print_node(find_song_in_lib(table, "Let it Go", "Mandy Moore"));
 
   return 0;
 }
