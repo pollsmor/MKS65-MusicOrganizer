@@ -32,29 +32,37 @@ struct song_node * insert_in_order(struct song_node *llist, char name[], char ar
   strncpy(node -> name, name, 100);
   strncpy(node -> artist, artist, 100);
 
-  struct song_node *current = llist;
-
-  if (current == NULL) { //case where list is empty
-    current = node;
-    current -> next = NULL;
-    return current; //return front of list
+  if (llist == NULL) { //case where list is empty
+    llist = node;
+    llist -> next = NULL;
+    return llist; //return front of list
   }
 
-  while (songcmp(current, next) < 0) {
-    struct song_node *next = current -> next;
-    if (next == NULL) {
-      //Case where a song is at the end of the list
+  struct song_node *current = llist;
+  struct song_node *next = NULL;
+
+  while (songcmp(node, current) < 0) {
+    next = current -> next;
+
+    if (next == NULL) { //reached end of list
+      if (current == llist) { //case where there is only 1 element
+        node -> next = current;
+        return node;
+      }
+
       current -> next = node;
       node -> next = NULL;
-      return llist; //return front of list
+      return llist;
     }
 
     current = next;
   }
 
-  //Location of song to be inserted at determined
+  //Location of song found
+  printf("%s \n", name);
+  next = current -> next;
   current -> next = node;
-  node -> next = prev;
+  node -> next = next;
   return llist; //return front of list
 }
 

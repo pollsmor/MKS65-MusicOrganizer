@@ -15,8 +15,8 @@ int main() {
 
   printf("Adding some Disney songs and their artists in order and testing print_list: \n");
   list = insert_in_order(list, "I See The Light", "Mandy Moore"); //and Zachary Levi
+  list = insert_in_order(list, "Let it Go", "Idina Menzel");
   list = insert_in_order(list, "Reflection", "Lea Salonga");
-  //list = insert_in_order(list, "Let it Go", "Idina Menzel");
   //list = insert_in_order(list, "For the First Time In Forever", "Kristen Bell"); //and Idina Menzel
   //list = insert_in_order(list, "Do You Want to Build a Snowman?", "Kristen Bell"); //and Idina Menzel
   //list = insert_in_order(list, "A Place Called Slaughter Race", "Sarah Silverman");
