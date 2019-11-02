@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "library.h"
 #include "llist.h"
 
@@ -60,6 +61,19 @@ struct song_node * find_artist_in_lib(struct song_node * table[27], char artist[
   }
 
   return NULL;
+}
+
+void shuffle_songs(struct song_node * table[27]) {
+  printf("Shuffling and retrieving 5 random songs from the library: \n");
+  for (int i = 0; i < 5; ++i) {
+    struct song_node * chosen = NULL;
+    while (chosen == NULL) {
+      int idx = rand() % 27;
+      chosen = random_song(table[idx]);
+    }
+
+    print_node(chosen);
+  }
 }
 
 void remove_song_in_lib(struct song_node * table[27], char name[], char artist[]) {

@@ -124,6 +124,10 @@ int lenOfList(struct song_node *llist) { //helper function for random_song
 }
 
 struct song_node *random_song(struct song_node *llist) {
+  if (llist == NULL) { //case where the list is empty
+    return NULL;
+  }
+
   int len = lenOfList(llist);
   int randIdx = rand() % len;
   int i = 0;

@@ -141,6 +141,11 @@ int main() {
   print_list(find_artist_in_lib(table, "Sarah Silverman"));
 
   printf("==================================== \n\n");
+  printf("Testing shuffle_songs: \n");
+  shuffle_songs(table);
+  printf("\n");
+
+  printf("==================================== \n\n");
   printf("Testing remove_song_in_lib: \n");
   printf("Printing the library again, for convenience: \n");
   print_library(table);
