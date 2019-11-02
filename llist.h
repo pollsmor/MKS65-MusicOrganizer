@@ -4,8 +4,6 @@ struct song_node {
   struct song_node *next;
 };
 
-int songcmp(struct song_node *song1, struct song_node *song2);
-
 struct song_node * insert_front(struct song_node *llist, char name[], char artist[]);
 
 struct song_node * insert_in_order(struct song_node *llist, char name[], char artist[]);

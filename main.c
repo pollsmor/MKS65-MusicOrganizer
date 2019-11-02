@@ -47,14 +47,6 @@ int main() {
   print_list(find_artist(list, "Mandy Moore"));
 
   printf("==================================== \n\n");
-  printf("Testing songcmp (helper function) [with the help of random_song]: \n");
-  songcmp(random_song(list), random_song(list));
-  songcmp(random_song(list), random_song(list));
-  songcmp(random_song(list), random_song(list));
-  songcmp(random_song(list), random_song(list));
-  songcmp(random_song(list), random_song(list));
-
-  printf("==================================== \n\n");
   printf("Testing random (with the help of print_node): \n");
   print_node(random_song(list));
   print_node(random_song(list));
