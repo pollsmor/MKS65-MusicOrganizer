@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "llist.h"
+#include "library.h"
 
 int main() {
   srand(time(NULL));
@@ -74,7 +75,17 @@ int main() {
   list = free_list(list);
   printf("List after free_list: ");
   print_list(list);
-  printf("\n\n");
+  printf("\n");
+
+  printf("==================================== \n\n");
+  printf("MUSIC LIBRARY TESTS \n\n");
+  printf("==================================== \n\n");
+
+
+  printf("Testing print_library \n");
+  struct song_node * table[27];
+  add_song(table, "Let it Go", "Idina Menzel");
+  print_list(table['L' - 'A']);
 
   return 0;
 }

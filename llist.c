@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "llist.h"
+#include "library.h"
 
 //Helper function
 int songcmp(struct song_node *song1, struct song_node *song2) {

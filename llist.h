@@ -1,9 +1,3 @@
-struct song_node {
-  char name[100];
-  char artist[100];
-  struct song_node *next;
-};
-
 struct song_node * insert_front(struct song_node *llist, char name[], char artist[]);
 
 struct song_node * insert_in_order(struct song_node *llist, char name[], char artist[]);
