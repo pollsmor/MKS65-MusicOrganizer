@@ -5,14 +5,10 @@
 
 //Helper function
 int songcmp(struct song_node *song1, struct song_node *song2) {
-  printf("Comparing \"%s\" by %s to \"%s\" by %s \n", song1 -> name, song1 -> artist, song2 -> name, song2 -> artist);
-
   if (strcmp(song1 -> artist, song2 -> artist) == 0) {
-    printf("%d \n", strcmp(song1 -> name, song2 -> name));
     return strcmp(song1 -> name, song2 -> name);
   }
 
-  printf("%d \n", strcmp(song1 -> artist, song2 -> artist));
   return strcmp(song1 -> artist, song2 -> artist);
 }
 
@@ -27,42 +23,38 @@ struct song_node * insert_front(struct song_node *llist, char name[], char artis
 
 //Alphabetical first by artist then by song
 struct song_node * insert_in_order(struct song_node *llist, char name[], char artist[]) {
+  struct song_node *current = llist;
+  struct song_node *prev = NULL;
+
   //Fill node with appropriate data, besides what the  next node is
   struct song_node *node = malloc(sizeof(struct song_node));
   strncpy(node -> name, name, 100);
   strncpy(node -> artist, artist, 100);
 
-  if (llist == NULL) { //case where list is empty
-    llist = node;
-    llist -> next = NULL;
-    return llist; //return front of list
+  if (current == NULL) { //case where list is empty
+    node -> next = llist;
+    return node;
   }
 
-  struct song_node *current = llist;
-  struct song_node *next = NULL;
+  if (songcmp(node, current) < 0) { //case where it should be inserted in front of the 1st element
+    node -> next = llist;
+    return node;
+  }
 
-  while (songcmp(node, current) < 0) {
-    next = current -> next;
-
-    if (next == NULL) { //reached end of list
-      if (current == llist) { //case where there is only 1 element
-        node -> next = current;
-        return node;
-      }
-
-      current -> next = node;
-      node -> next = NULL;
+  while (current != NULL) {
+    if (songcmp(node, current) < 0) { //wait until the song is actually "smaller" than the current song
+      prev -> next = node;
+      node -> next = current;
       return llist;
     }
 
-    current = next;
+    prev = current;
+    current = current -> next;
   }
 
-  //Location of song found
-  printf("%s \n", name);
-  next = current -> next;
-  current -> next = node;
-  node -> next = next;
+  //Coudln't find a song "larger" than the song to be inserted, put it at the end
+  prev -> next = node; //can't do current -> next since current has been set to NULL by this point
+  node -> next = NULL;
   return llist; //return front of list
 }
 
