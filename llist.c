@@ -61,7 +61,7 @@ struct song_node * insert_in_order(struct song_node *llist, char name[], char ar
 
 void print_list(struct song_node *llist) {
   if (llist == NULL) { //empty list
-    printf("[ ] \n");
+    printf("[ ]");
     return;
   }
 

@@ -84,8 +84,20 @@ int main() {
 
   printf("Testing print_library \n");
   struct song_node * table[27];
+  for (int i = 0; i < 27; i++) {
+    table[i] = NULL;
+  }
+
   add_song(table, "Let it Go", "Idina Menzel");
-  print_list(table['L' - 'A']);
+  add_song(table, "I See The Light", "Mandy Moore"); //and Zachary Levi
+  add_song(table, "Reflection", "Lea Salonga");
+  add_song(table, "For the First Time In Forever", "Kristen Bell"); //and Idina Menzel
+  add_song(table, "Do You Want to Build a Snowman?", "Kristen Bell"); //and Idina Menzel
+  add_song(table, "A Place Called Slaughter Race", "Sarah Silverman");
+  add_song(table, "When Will My Life Begin", "Mandy Moore");
+  add_song(table, "A Whole New World", "Lea Salonga"); //and Brad Kane
+  add_song(table, "Test song", "#TeamTrees");
+  print_library(table);
 
   return 0;
 }
