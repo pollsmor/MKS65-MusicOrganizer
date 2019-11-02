@@ -41,14 +41,19 @@ int main() {
 
   printf("==================================== \n\n");
   printf("Testing find_artist (with the help of print_list): \n");
+  printf("Looking for the first song by Michael Bolton: \n");
   print_list(find_artist(list, "Michael Bolton"));
   printf("\n");
+  printf("Looking for the first song by Kristen Bell: \n");
   print_list(find_artist(list, "Kristen Bell"));
   printf("\n");
+  printf("Looking for the first song by Idina Menzel: \n");
   print_list(find_artist(list, "Idina Menzel"));
   printf("\n");
+  printf("Looking for the first song by Kanye West: \n");
   print_list(find_artist(list, "Kanye West"));
   printf("\n");
+  printf("Looking for the first song by Mandy Moore: \n");
   print_list(find_artist(list, "Mandy Moore"));
 
   printf("==================================== \n\n");
@@ -120,6 +125,20 @@ int main() {
   print_node(find_song_in_lib(table, "When Will My Life Begin", "Kanye West"));
   printf("\n");
   print_node(find_song_in_lib(table, "Let it Go", "Mandy Moore"));
+
+  printf("==================================== \n\n");
+  printf("Testing find_artist_in_lib: \n");
+  print_list(find_artist_in_lib(table, "Michael Bolton"));
+  printf("\n");
+  print_list(find_artist_in_lib(table, "Kristen Bell"));
+  printf("\n");
+  print_list(find_artist_in_lib(table, "Idina Menzel"));
+  printf("\n");
+  print_list(find_artist_in_lib(table, "Kanye West"));
+  printf("\n");
+  print_list(find_artist_in_lib(table, "Mandy Moore"));
+  printf("\n");
+  print_list(find_artist_in_lib(table, "Sarah Silverman"));
 
   return 0;
 }

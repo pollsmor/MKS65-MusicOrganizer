@@ -48,3 +48,16 @@ struct song_node * find_song_in_lib(struct song_node * table[27], char name[], c
 
   return NULL;
 }
+
+struct song_node * find_artist_in_lib(struct song_node * table[27], char artist[]) {
+  printf("Looking for the first song by %s: \n", artist);
+  char letter = artist[0];
+
+  struct song_node * output = find_artist(table[letter - 'A'], artist);
+  if (output != NULL) {
+    printf("Artist found! \n");
+    return output;
+  }
+
+  return NULL;
+}
