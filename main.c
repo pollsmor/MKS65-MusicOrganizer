@@ -155,5 +155,12 @@ int main() {
   remove_song_in_lib(table, "A Whole New World", "Lea Salonga");
   print_library(table);
 
+  printf("==================================== \n\n");
+  printf("Testing clear_library \n");
+  clear_library(table);
+  printf("List after clear_library: ");
+  print_library(table);
+  printf("\n");
+
   return 0;
 }

@@ -67,3 +67,12 @@ void remove_song_in_lib(struct song_node * table[27], char name[], char artist[]
 
   table[letter - 'A'] = remove_song(table[letter - 'A'], name, artist);
 }
+
+void clear_library(struct song_node * table[27]) {
+  int i;
+  for (i = 0; i < 27; i++) {
+    if (table[i] != NULL) {
+      table[i] = free_list(table[i]);
+    }
+  }
+}
