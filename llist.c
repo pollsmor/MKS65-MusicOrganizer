@@ -61,7 +61,7 @@ struct song_node * insert_in_order(struct song_node *llist, char name[], char ar
 
 void print_list(struct song_node *llist) {
   if (llist == NULL) { //empty list
-    printf("[ ]");
+    printf("[ ] \n");
     return;
   }
 
@@ -82,7 +82,7 @@ void print_node(struct song_node *node) {
   printf("\"%s\" by %s \n", node -> name, node -> artist);
 }
 
-struct song_node *find_song(struct song_node *llist, char name[], char artist[]) {
+struct song_node * find_song(struct song_node *llist, char name[], char artist[]) {
   struct song_node *current = llist;
 
   while (current != NULL) {
@@ -98,7 +98,7 @@ struct song_node *find_song(struct song_node *llist, char name[], char artist[])
   return NULL;
 }
 
-struct song_node *find_artist(struct song_node *llist, char artist[]) {
+struct song_node * find_artist(struct song_node *llist, char artist[]) {
   struct song_node *current = llist;
 
   while (current != NULL) {
@@ -123,7 +123,7 @@ int lenOfList(struct song_node *llist) { //helper function for random_song
   return i;
 }
 
-struct song_node *random_song(struct song_node *llist) {
+struct song_node * random_song(struct song_node *llist) {
   if (llist == NULL) { //case where the list is empty
     return NULL;
   }
@@ -140,7 +140,7 @@ struct song_node *random_song(struct song_node *llist) {
   return current;
 }
 
-struct song_node *remove_song(struct song_node *llist, char name[], char artist[]) {
+struct song_node * remove_song(struct song_node *llist, char name[], char artist[]) {
   struct song_node *prev = NULL;
   struct song_node *current = llist;
 
